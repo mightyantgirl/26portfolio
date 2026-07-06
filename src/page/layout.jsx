@@ -11,7 +11,7 @@ export default function Layout() {
   const [active, setActive] = useState("home");
 
   return (
-    <div className="relative w-full mx-auto h-screen overflow-hidden">
+    <div className="relative w-full mx-auto h-dvh overflow-hidden">
       <div className="absolute inset-0 z-10 ">
         <Home />
       </div>
