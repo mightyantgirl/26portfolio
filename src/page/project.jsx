@@ -10,7 +10,7 @@ export default function Project({ onClose }) {
 
       {/* md~ */}
       <div className="absolute right-10 top-8" onClick={onClose}>
-        <span className="hidden md:block text-4xl tablet:text-6xl desktop:text-7xl">
+        <span className="hidden md:block text-4xl md:text-6xl lg:text-7xl">
           Project
         </span>
       </div>

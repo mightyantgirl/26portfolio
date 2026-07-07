@@ -31,7 +31,7 @@ export default function Layout() {
           transition-transform duration-500 ease-in-out
           ${
             active === "about"
-              ? "translate-y-[7%] " // 열림: 제자리
+              ? "translate-y-[6%] " // 열림: 제자리
               : "translate-y-[88%] md:translate-y-[81%]" // 닫힘: 아래로 내려가서 빼꼼만 보임
           }
         `}
@@ -58,7 +58,7 @@ export default function Layout() {
           transition-transform duration-500 ease-in-out
           ${
             active === "project"
-              ? "translate-y-[7%]" // 열림: 제자리
+              ? "translate-y-[6%]" // 열림: 제자리
               : "translate-y-[92%] md:translate-y-[87%]" // 닫힘: 아래로 내려가서 빼꼼만 보임
           }
         `}
@@ -87,7 +87,7 @@ export default function Layout() {
           transition-transform duration-500 ease-in-out
           ${
             active === "contact"
-              ? "translate-y-[7%]" // 열림: 제자리
+              ? "translate-y-[6%]" // 열림: 제자리
               : "translate-y-[96%] md:translate-y-[93%]" // 닫힘: 아래로 내려가서 빼꼼만 보임
           }
         `}
