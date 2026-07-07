@@ -2,25 +2,14 @@
 
 개인 포트폴리오 웹사이트입니다.
 
+**배포 링크**
+http://26heejinportfolio.vercel.app
+
 ## 스택
 
 - React 19 + TypeScript + Vite
 - Tailwind CSS v4 (`@theme`, `@utility` 커스텀 문법)
 - React Router v7
-
-## 시작하기
-
-```bash
-npm install
-npm run dev
-```
-
-| 명령어 | 설명 |
-|--------|------|
-| `npm run dev` | 개발 서버 실행 |
-| `npm run build` | 타입 체크 후 프로덕션 빌드 |
-| `npm run preview` | 빌드 결과 미리보기 |
-| `npm run lint` | Oxlint 검사 |
 
 ## 프로젝트 구조
 
