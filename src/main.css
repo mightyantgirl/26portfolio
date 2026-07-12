@@ -154,6 +154,19 @@
     display: none;
   }
 
+  /* .scroll-area만 얇은 스크롤바 다시 보이기 */
+  .scroll-area {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Firefox: thumb색 트랙색 */
+  }
+  .scroll-area::-webkit-scrollbar {
+    display: block; /* 전역 display:none 덮어쓰기 */
+    width: 4px;
+  }
+  .scroll-area::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
   html {
     scroll-behavior: smooth;
   }

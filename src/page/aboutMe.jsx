@@ -1,6 +1,8 @@
+import { careers, educations, skills } from "../data/profile";
+
 export default function AboutMe({ onClose }) {
   return (
-    <div className="relative bg-[#f6ed5c] h-screen font-normal rounded-t-xl md:rounded-t-3xl px-5 py-15 md:px-20 md:pt-35 md:pb-20">
+    <div className="relative bg-[#f6ed5c] h-screen font-normal rounded-t-xl md:rounded-t-3xl px-5 py-15 md:px-20 md:pt-30 md:pb-20">
       {/* sm */}
       <div className="no-hidden md:hidden absolute flex justify-center items-center top-[-30px] left-0 w-1/3 bg-[#f6ed5c] rounded-t-2xl">
         <span className="no-hidden md:hidden text-lg font-semibold py-2 ">
@@ -19,21 +21,15 @@ export default function AboutMe({ onClose }) {
 
           <div className="col-span-3 flex flex-col leading-none">
             <div className="space-y-7">
-              <div className="space-y-2">
-                <p>계원예술대학교</p>
-                <p>
-                  디지털미디어디자인학과
-                  <span className="text-xs ml-2">전공심화 졸업</span>
-                </p>
-                <p className="text-xs mt-3">2016. 03 - 2021. 02</p>
-              </div>
-              <div className="space-y-2">
-                <p>
-                  인천연수여자고등학교
-                  <span className="text-xs ml-2">졸업</span>
-                </p>
-                <p className="text-xs mt-3">2015. 02</p>
-              </div>
+              {educations.map((education) => (
+                <div key={education.school} className="space-y-2">
+                  <p>
+                    {education.school}
+                    <span className="text-xs ml-2">{education.detail}</span>
+                  </p>
+                  <p className="text-xs mt-3">{education.period}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -45,37 +41,18 @@ export default function AboutMe({ onClose }) {
               <p className="text-lg leading-none">경력</p>
             </div>
           </div>
-
           <div className="col-span-3 flex flex-col leading-none">
             <div className="space-y-7">
-              <div className="space-y-2">
-                <p>
-                  인트루트 디자인팀
-                  <span className="text-xs ml-2">웹 디자인/퍼블리싱</span>
-                </p>
-                <p className="text-xs mt-2 leading-5">
-                  인터넷 언론사 뉴스 기사 내에 설치하여 뉴스를 읽거나 출석을
-                  통해 얻은 보상을 코인으로 전환하고 출금할 수 있는 Widget과
-                  언론사가 코인의 스왑/출금/트랜잭션 내역을 볼 수 있는
-                  Explorer를 개발하였습니다.
-                </p>
-
-                <p className="text-xs mt-3">2016. 03 - 2021. 02</p>
-              </div>
-              <div className="space-y-2">
-                <p>
-                  헤이컬렉티브 디자인팀
-                  <span className="text-xs ml-2">UI/UX디자인</span>
-                </p>
-                <p className="text-xs mt-2 leading-5">
-                  인터넷 언론사 뉴스 기사 내에 설치하여 뉴스를 읽거나 출석을
-                  통해 얻은 보상을 코인으로 전환하고 출금할 수 있는 Widget과
-                  언론사가 코인의 스왑/출금/트랜잭션 내역을 볼 수 있는
-                  Explorer를 개발하였습니다.
-                </p>
-
-                <p className="text-xs mt-3">2020. 10 - 2021. 05</p>
-              </div>
+              {careers.map((career) => (
+                <div key={career.company} className="space-y-2">
+                  <p>
+                    {career.company}
+                    <span className="text-xs ml-2">{career.role}</span>
+                  </p>
+                  <p className="text-xs mt-2 leading-5">{career.description}</p>
+                  <p className="text-xs mt-3">{career.period}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -89,24 +66,13 @@ export default function AboutMe({ onClose }) {
 
           <div className="col-span-3 flex flex-col leading-none">
             <div className="space-y-7 -mt-1.5">
-              <div className="space-y-2 ">
-                <p className=" leading-7">
-                  Figma · Adobe Photoshop · Adobe Illustrator · Adobe Premiere
-                  Pro · Adobe Lightroom
-                </p>
-                <p className="text-xs mt-3">Design</p>
-              </div>
-              <div className="space-y-2">
-                <p className=" leading-7">
-                  HTML · CSS · JavaScript · TypeScript · React · Tailwind CSS ·
-                  Three.js · Vite
-                </p>
-                <p className="text-xs mt-3">Pub/FE</p>
-              </div>
-              <div className="space-y-2">
-                <p className=" leading-7">GitHub · Notion · VS Code · Claude</p>
-                <p className="text-xs mt-3">Tools</p>
-              </div>
+              {skills.map((skill) => (
+                <div key={skill.category}>
+                  <p className=" leading-7">{skill.items}</p>
+
+                  <p className="text-xs  mt-3">{skill.category}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -136,22 +102,18 @@ export default function AboutMe({ onClose }) {
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="grid grid-cols-[200px_1fr]">
-                  <p className="text-lg">2016. 03 - 2021. 02</p>
-                  <div>
-                    <span className="text-lg mr-2">
-                      계원예술대학교 디지털미디어디자인학과
-                    </span>
-                    <span className="text-xs">전공심화 졸업</span>
+                {educations.map((education) => (
+                  <div
+                    key={education.school}
+                    className="grid grid-cols-[200px_1fr]"
+                  >
+                    <p className="text-lg">{education.period}</p>
+                    <div>
+                      <span className="text-lg mr-2">{education.school}</span>
+                      <span className="text-xs">{education.detail}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="grid grid-cols-[200px_1fr]">
-                  <span className="text-lg">2015. 02</span>
-                  <div>
-                    <span className="text-lg mr-2">인천연수여자고등학교</span>
-                    <span className="text-xs">졸업</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -161,28 +123,16 @@ export default function AboutMe({ onClose }) {
                 <p className="text-xl">경력</p>
               </div>
               <div className="flex flex-col gap-7">
-                <div className="grid grid-cols-[200px_1fr]">
-                  <span className="text-lg">인크루트 디자인팀</span>
-                  <span className="text-lg">웹 디자인/퍼블리싱</span>
-                  <p className="text-xs mt-2">2024. 09 - 2026. 02</p>
-                  <p className="text-xs mt-2">
-                    인터넷 언론사 뉴스 기사 내에 설치하여 뉴스를 읽거나 출석을
-                    통해 얻은 보상을 코인으로 전환하고 출금할 수 있는 Widget과
-                    언론사가 코인의 스왑/출금/트랜잭션 내역을 볼 수 있는
-                    Explorer를 개발하였습니다.
-                  </p>
-                </div>
-                <div className="grid grid-cols-[200px_1fr]">
-                  <span className="text-lg ">헤이컬렉티브 디자인팀</span>
-                  <span className="text-lg">UI/UX디자인</span>
-                  <p className="text-xs mt-2">2020. 10 - 2021. 05</p>
-                  <p className="text-xs  mt-2">
-                    인터넷 언론사 뉴스 기사 내에 설치하여 뉴스를 읽거나 출석을
-                    통해 얻은 보상을 코인으로 전환하고 출금할 수 있는 Widget과
-                    언론사가 코인의 스왑/출금/트랜잭션 내역을 볼 수 있는
-                    Explorer를 개발하였습니다.
-                  </p>
-                </div>
+                {careers.map((career) => (
+                  <div className="grid grid-cols-[200px_1fr]">
+                    <span className="text-lg">{career.company}</span>
+                    <span className="text-lg">{career.role}</span>
+                    <span className="text-base mt-2">{career.period}</span>
+                    <span className="text-base mt-2 leading-7">
+                      {career.description}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -192,29 +142,21 @@ export default function AboutMe({ onClose }) {
                 <p className="text-xl">기술</p>
               </div>
               <div className="flex flex-col gap-7 text-lg text-black">
-                <div className="grid grid-cols-[200px_1fr]">
-                  <p className="whitespace-nowrap">Design</p>
-                  <p>
-                    Figma · Adobe Photoshop · Adobe Illustrator · Adobe Premiere
-                    Pro · Adobe Lightroom
-                  </p>
-                </div>
-                <div className="grid grid-cols-[200px_1fr]">
-                  <p className="whitespace-nowrap">Pub/FE</p>
-                  <p>
-                    HTML · CSS · JavaScript · TypeScript · React · Tailwind CSS
-                    · Three.js · Vite
-                  </p>
-                </div>
-                <div className="grid grid-cols-[200px_1fr]">
-                  <p className="whitespace-nowrap">Tools</p>
-                  <p>GitHub · Notion · VS Code · Claude</p>
-                </div>
+                {skills.map((skill) => (
+                  <div
+                    key={skill.category}
+                    className="grid grid-cols-[200px_1fr]"
+                  >
+                    <p className="whitespace-nowrap">{skill.category}</p>
+                    <p>{skill.items}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="hidden md:block pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f6ed5c] to-transparent mb-30" />
     </div>
   );
 }
