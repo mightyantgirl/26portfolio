@@ -26,7 +26,7 @@ export default function home() {
             </button>
             <span>·</span>
             <button className="no-underline focus:underline">
-              <a href="jeenie0819@gmail.com">E-mail</a>
+              <a href="heedineee@gmail.com">E-mail</a>
             </button>
           </div>
           <header className="relative pt-18 flex">
@@ -62,7 +62,7 @@ export default function home() {
               </button>
               <span>·</span>
               <button className="no-underline hover:underline">
-                <a href="jeenie0819@gmail.com">E-mail</a>
+                <a href="heedineee@gmail.com">E-mail</a>
               </button>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { projects } from "../data/project";
 export default function Project({ onClose }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const cardRefs = useRef([]); // 카드 DOM들을 담아둘 배열 useRef는 .current로 꺼낸다
+  const [openProject, setOpenproject] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,47 +38,62 @@ export default function Project({ onClose }) {
       </div>
 
       <div>
-        <div className="absolute no-hidden md:hidden left-5 right-0">
-          {/* 이미지 캐러셀 */}
-          <div className="relative flex overflow-x-auto snap-x snap-mandatory gap-5">
-            {projects.map((project, i) => (
-              <div
-                className="flex-none bg-white rounded-2xl snap-start shrink-0 w-[85%] "
-                key={project.key}
-                ref={(el) => (cardRefs.current[i] = el)}
-              >
-                {project.badge && (
-                  <div className="absolute top-5 left-5 px-3 py-[6px] text-xs rounded-full border border-black">
+        {openProject ? (
+          <div className="absolute no-hidden md:hidden left-5 right-0">
+            {/* 이미지 캐러셀 */}
+            <div className="relative flex overflow-x-auto snap-x snap-mandatory gap-5">
+              {projects.map((project, i) => (
+                <div
+                  className="flex-none bg-white rounded-2xl snap-start shrink-0 w-[85%] h-[400px]"
+                  key={project.key}
+                  ref={(el) => (cardRefs.current[i] = el)}
+                >
+                  {/* {project.badge && (
+                  <div className="absolute top-5 left-5 px-3 py-[6px] text-xs rounded-full bg-black text-white border border-black">
                     {project.badge}
                   </div>
-                )}
-                <img
-                  src="/img/projectImg_1.png"
-                  alt="project 1"
-                  className="w-full h-full object-cover"
-                />
+                )} */}
+                  <img
+                    src="/img/projectImg_1.png"
+                    alt="project 1"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* 내용 */}
+            <div className="absolute w-full mt-10 pr-5">
+              <div className="flex justify-between items-start">
+                <h3 className="text-3xl font-bold">{activeProject.name}</h3>
+                <p className="text-sm">{activeProject.date}</p>
               </div>
-            ))}
-          </div>
-          {/* 내용 */}
-          <div className="absolute w-full mt-10 pr-5">
-            <div className="flex justify-between items-start">
-              <h3 className="text-3xl font-bold">{activeProject.name}</h3>
-              <p className="text-sm">{activeProject.date}</p>
+              <p className="text-sm mt-2">{activeProject.stack}</p>
+              <div className="flex justify-end gap-2 mt-7">
+                <a
+                  href={activeProject.notion}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-1 px-3 border border-black rounded-full"
+                >
+                  Notion →
+                </a>
+                <a
+                  href={activeProject.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-1 px-3 border border-black rounded-full"
+                >
+                  Github →
+                </a>
+              </div>
             </div>
-            <p className="text-sm mt-2">{activeProject.stack}</p>
-            <div className="flex gap-2 mt-4">
-              <a href={activeProject.notion} target="_blank" rel="noreferrer">
-                Notion →
-              </a>
-              <a href={activeProject.github} target="_blank" rel="noreferrer">
-                Github →
-              </a>
-            </div>
           </div>
-        </div>
-
-        {/* 디테일 */}
+        ) : (
+          {/* 디테일 */}
+          <div>
+            <a></a>
+          </div>
+        )}
       </div>
       {/* md~ */}
       <div className="absolute right-10 top-8" onClick={onClose}>

@@ -41,6 +41,7 @@ export default function AboutMe({ onClose }) {
               <p className="text-lg leading-none">경력</p>
             </div>
           </div>
+
           <div className="col-span-3 flex flex-col leading-none">
             <div className="space-y-7">
               {careers.map((career) => (
@@ -50,7 +51,12 @@ export default function AboutMe({ onClose }) {
                     <span className="text-xs ml-2">{career.role}</span>
                   </p>
                   <p className="text-xs mt-2 leading-5">{career.description}</p>
-                  <p className="text-xs mt-3">{career.period}</p>
+                  <p className="text-xs mt-3 mb-1">{career.period}</p>
+                  <div className="flex justify-end">
+                    <button className="text-xs py-1 px-3 border border-black rounded-full focus:bg-black focus:text-[#f6ed5c]">
+                      경력 기술 상세보기
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -90,7 +96,7 @@ export default function AboutMe({ onClose }) {
         <div className="grid grid-cols-12 gap-6 text-base">
           <div className="flex flex-col space-y-2 text-black col-span-4">
             <p>P. 010.7137.0188</p>
-            <p>M. jeenie0819@gmail.com</p>
+            <p>M. heedineee@gmail.com</p>
             <p>github.com/mightyantgirl</p>
           </div>
 
@@ -124,13 +130,18 @@ export default function AboutMe({ onClose }) {
               </div>
               <div className="flex flex-col gap-7">
                 {careers.map((career) => (
-                  <div className="grid grid-cols-[200px_1fr]">
+                  <div className="relative grid grid-cols-[200px_1fr]">
                     <span className="text-lg">{career.company}</span>
                     <span className="text-lg">{career.role}</span>
                     <span className="text-base mt-2">{career.period}</span>
-                    <span className="text-base mt-2 leading-7">
+                    <span className="text-base mt-2 leading-7 mb-6">
                       {career.description}
                     </span>
+                    <button className="-top-[2px] right-2 py-1 px-3 rounded-full absolute border border-black text-xs hover:bg-black hover:text-[#f6ed5c]">
+                      <a href={career.link} target="_blank">
+                        경력 기술 상세보기
+                      </a>
+                    </button>
                   </div>
                 ))}
               </div>
